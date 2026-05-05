@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nora Motion - Motion Graphics & Video Production</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<title>Nora Motion — Motion Graphics & Video Production</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   @font-face {
@@ -14,8 +13,8 @@
     font-style: normal;
   }
   :root {
-    --accent: #C6974A;
-    --accent-light: rgba(198,151,74,0.15);
+    --accent: #C89B52;
+    --accent-light: rgba(200,155,82,0.15);
     --accent2: #FF3D00;
     --bg: #080808;
     --bg2: #0e0e0e;
@@ -43,7 +42,7 @@
   }
   .cursor-follower {
     position: fixed; width: 36px; height: 36px;
-    border: 1px solid rgba(198,151,74,0.4); border-radius: 50%;
+    border: 1px solid rgba(200,155,82,0.4); border-radius: 50%;
     pointer-events: none; z-index: 9998;
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
@@ -88,7 +87,7 @@
     overflow: hidden;
   }
   #canvas-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-content { position: relative; z-index: 2; text-align: center; }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 1.4rem; }
   .hero-tag {
     font-family: 'DM Mono', monospace;
     font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
@@ -98,9 +97,9 @@
   .hero-logo-img {
     width: 120px; height: 120px; border-radius: 50%;
     object-fit: cover; margin: 0 auto 2.5rem;
-    display: block; border: 2px solid rgba(198,151,74,0.3);
+    display: block; border: 2px solid rgba(200,155,82,0.3);
     opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-    box-shadow: 0 0 60px rgba(198,151,74,0.15);
+    box-shadow: 0 0 60px rgba(200,155,82,0.15);
   }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
@@ -200,7 +199,7 @@
     background: linear-gradient(135deg, var(--accent-light) 0%, transparent 60%);
     opacity: 0; transition: opacity 0.4s;
   }
-  .service-card:hover { border-color: rgba(198,151,74,0.4); }
+  .service-card:hover { border-color: rgba(200,155,82,0.4); }
   .service-card:hover::before { opacity: 1; }
   .service-num {
     font-family: 'DM Mono', monospace; font-size: 0.65rem;
@@ -220,50 +219,140 @@
     border: 1px solid #282828; color: var(--muted);
     text-transform: uppercase;
   }
-  .service-card:hover .tag { border-color: rgba(198,151,74,0.3); }
+  .service-card:hover .tag { border-color: rgba(200,155,82,0.3); }
 
-  /* WORK */
-  #work { padding: 8rem 0; }
-  .work-inner { max-width: 1400px; margin: 0 auto; padding: 0 4rem; }
-  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+  /* SHARED SECTION TYPOGRAPHY */
   .section-tag {
     font-family: 'DM Mono', monospace; font-size: 0.7rem;
     letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase;
-    margin-bottom: 0.5rem; display: block;
+    margin-bottom: 0.75rem; display: block;
   }
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 4vw, 4.5rem); color: #fff; line-height: 1;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    color: #fff; line-height: 1; letter-spacing: 0.01em;
   }
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .project-card {
-    position: relative; aspect-ratio: 16/9; overflow: hidden;
-    cursor: none; background: var(--bg2);
+
+  /* ── FEATURED WORK ─────────────────────────────────────────── */
+  #work {
+    padding: 6rem 0 8rem;
+    background: var(--bg);
   }
-  .project-card:first-child { grid-column: 1 / -1; }
-  .yt-card iframe {
-    width: 100%; height: 100%; border: none; display: block;
+  .work-header {
+    max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 1.5rem;
   }
-  .project-mesh { width: 100%; height: 100%; position: relative; overflow: hidden; }
-  .mesh-circle {
-    position: absolute; border-radius: 50%; opacity: 0.35;
-    animation: float 8s ease-in-out infinite;
+  .work-header-left {}
+  .work-eyebrow {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--accent); display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 0.9rem;
   }
-  .project-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 2.5rem;
-    opacity: 0; transform: translateY(8px);
-    transition: opacity 0.4s, transform 0.4s;
+  .work-eyebrow::before {
+    content: ''; display: inline-block; width: 28px; height: 1px;
+    background: var(--accent);
   }
-  .project-card:hover .project-overlay { opacity: 1; transform: translateY(0); }
-  .project-type {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.5rem;
+  .work-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 4rem); color: #fff; line-height: 1;
+    letter-spacing: 0.01em;
   }
-  .project-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #fff; }
-  .project-sub { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
+  .work-title em { color: var(--accent); font-style: normal; }
+  .work-cta-link {
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+    display: flex; align-items: center; gap: 0.6rem;
+    transition: gap 0.3s ease;
+    cursor: none; white-space: nowrap;
+  }
+  .work-cta-link:hover { gap: 1.2rem; }
+  .work-cta-link::after { content: '→'; font-size: 1rem; }
+
+  /* Featured layout: big card top, two below */
+  .fw-grid {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; flex-direction: column; gap: 2rem;
+  }
+  .fw-row-bottom {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+
+  /* Video card */
+  .fw-card {
+    background: #0c0c0c;
+    border: 1px solid #1e1e1e;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: none;
+  }
+  .fw-card:hover {
+    border-color: rgba(200,155,82,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,155,82,0.08);
+  }
+
+  /* Video wrapper — 16:9 */
+  .fw-video {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    background: #000; overflow: hidden;
+  }
+  .fw-video iframe,
+  .fw-video video {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+    background: #000;
+  }
+
+  /* Card body */
+  .fw-body {
+    padding: 1.6rem 1.8rem 2rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    position: relative;
+  }
+  .fw-body::before {
+    content: ''; position: absolute; top: 0; left: 1.8rem; right: 1.8rem;
+    height: 1px; background: linear-gradient(to right, var(--accent), transparent);
+    opacity: 0.25;
+  }
+  .fw-number {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase;
+  }
+  .fw-card-title {
+    font-family: 'Outfit', sans-serif; font-weight: 600;
+    font-size: 1rem; color: #fff; line-height: 1.45;
+    letter-spacing: -0.01em;
+  }
+  .fw-card-desc {
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    font-size: 0.88rem; color: var(--muted); line-height: 1.75;
+    margin-top: 0.2rem;
+  }
+
+  /* Featured (top) card — slightly larger title */
+  .fw-card--featured .fw-card-title { font-size: 1.1rem; }
+  .fw-card--featured .fw-body { padding: 1.8rem 2rem 2.2rem; }
+
+  /* Accent bar on hover */
+  .fw-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.5s ease;
+  }
+  .fw-card:hover::after { width: 100%; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .fw-row-bottom { grid-template-columns: 1fr; }
+    .work-header { flex-direction: column; align-items: flex-start; }
+    .fw-grid { padding: 0 1.2rem; }
+    .work-header { padding: 0 1.2rem; }
+    #work { padding: 4rem 0 6rem; }
+  }
 
   /* CLIENTS */
   #clients { padding: 6rem 4rem; }
@@ -288,8 +377,8 @@
   #contact { padding: 10rem 4rem; text-align: center; position: relative; overflow: hidden; }
   .contact-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
   .contact-bg-text {
-    position: absolute; font-family: 'Bebas Neue', sans-serif;
-    font-size: 28vw; color: #0d0d0d; letter-spacing: -0.05em;
+    position: absolute; font-family: 'Rez', sans-serif;
+    font-size: 28vw; color: #0d0d0d; letter-spacing: -0.02em;
     top: 50%; left: 50%; transform: translate(-50%, -50%);
     white-space: nowrap; z-index: 0; pointer-events: none; user-select: none;
   }
@@ -298,7 +387,7 @@
     font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9; color: #fff; margin-bottom: 2rem;
   }
   .contact-big .hollow {
-    -webkit-text-stroke: 1px rgba(198,151,74,0.5); color: transparent;
+    -webkit-text-stroke: 1px rgba(200,155,82,0.5); color: transparent;
   }
   .contact-email {
     font-family: 'DM Mono', monospace; font-size: 0.9rem;
@@ -371,6 +460,121 @@
   .reveal-delay-2 { transition-delay: 0.24s; }
   .reveal-delay-3 { transition-delay: 0.36s; }
   .reveal-delay-4 { transition-delay: 0.48s; }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — TABLET (max 1024px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    #about { padding: 6rem 2rem; gap: 4rem; }
+    #services { padding: 6rem 2rem; }
+    #clients { padding: 4rem 2rem; }
+    #contact { padding: 7rem 2rem; }
+    footer { padding: 1.5rem 2rem; }
+    .fw-grid { padding: 0 1.5rem; }
+    .work-header { padding: 0 1.5rem; margin-bottom: 2.5rem; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — MOBILE (max 768px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Hide custom cursor on touch */
+    .cursor, .cursor-follower { display: none !important; }
+    body { cursor: auto; }
+    a, button, .btn, .social-link, .work-cta-link { cursor: pointer; }
+
+    /* NAV — hamburger-free minimal */
+    nav {
+      padding: 1rem 1.4rem;
+      background: rgba(8,8,8,0.97);
+    }
+    .nav-logo .logo-text { font-size: 2rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; }
+
+    /* HERO */
+    #hero { height: 100svh; padding: 0 1.4rem; }
+    .hero-tag { font-size: 0.6rem; letter-spacing: 0.15em; }
+    .hero-title { font-size: clamp(3.2rem, 16vw, 6rem); }
+    .hero-cta { flex-direction: column; align-items: center; gap: 0.8rem; }
+    .hero-cta .btn { width: 100%; max-width: 280px; text-align: center; justify-content: center; }
+    .scroll-indicator { display: none; }
+
+    /* MARQUEE */
+    .marquee-section { padding: 0.9rem 0; }
+    .marquee-item { font-size: 0.62rem; }
+
+    /* FEATURED WORK */
+    #work { padding: 3.5rem 0 5rem; }
+    .work-header {
+      padding: 0 1.2rem;
+      flex-direction: column; align-items: flex-start;
+      margin-bottom: 2rem; gap: 1rem;
+    }
+    .work-title { font-size: clamp(2rem, 9vw, 3rem); }
+    .fw-grid { padding: 0 1.2rem; gap: 1.4rem; }
+    .fw-row-bottom { grid-template-columns: 1fr; gap: 1.4rem; }
+    .fw-body { padding: 1.2rem 1.3rem 1.5rem; }
+    .fw-card--featured .fw-body { padding: 1.2rem 1.3rem 1.5rem; }
+    .fw-card-title { font-size: 0.92rem; }
+    .fw-card--featured .fw-card-title { font-size: 0.95rem; }
+    .fw-card-desc { font-size: 0.82rem; }
+    /* Disable hover transform on touch */
+    .fw-card:hover { transform: none; }
+
+    /* ABOUT */
+    #about {
+      padding: 4rem 1.4rem;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .about-stats { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .stat-number { font-size: 3.8rem; }
+    #about .section-title,
+    #services .section-title { font-size: clamp(2rem, 9vw, 3.5rem); }
+
+    /* SERVICES */
+    #services { padding: 4rem 1.4rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1px; }
+    .service-card { padding: 2rem 1.5rem; }
+    .service-name { font-size: 1.7rem; }
+
+    /* CLIENTS */
+    #clients { padding: 3rem 1.4rem; }
+    .clients-row { gap: 2rem; }
+    .client-name { font-size: 1.1rem; }
+
+    /* CONTACT */
+    #contact { padding: 5rem 1.4rem; }
+    .contact-big { font-size: clamp(2.8rem, 12vw, 6rem); }
+    .contact-bg-text { font-size: 40vw; }
+    .contact-form-wrap { margin-top: 2rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-input { font-size: 16px; } /* prevent iOS zoom on focus */
+    .form-submit { padding: 1rem; }
+
+    /* FOOTER */
+    footer {
+      padding: 1.5rem 1.4rem;
+      flex-direction: column; gap: 0.5rem; text-align: center;
+    }
+    .footer-copy { font-size: 0.65rem; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — SMALL MOBILE (max 480px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .nav-links { gap: 0.9rem; }
+    .nav-links a { font-size: 0.62rem; }
+    .nav-logo .logo-text { font-size: 1.7rem; }
+    .hero-title { font-size: clamp(2.8rem, 18vw, 5rem); }
+    .about-stats { gap: 1.5rem; }
+    .stat-number { font-size: 3.2rem; }
+    .contact-big { font-size: clamp(2.4rem, 14vw, 5rem); }
+  }
 </style>
 </head>
 <body>
@@ -433,11 +637,74 @@
   </div>
 </div>
 
+<!-- FEATURED WORK -->
+<section id="work">
+
+  <!-- Section Header -->
+  <div class="work-header">
+    <div class="work-header-left">
+      <div class="work-eyebrow reveal">Featured Work</div>
+      <h2 class="work-title reveal reveal-delay-1">RESULTS THAT<br>SPEAK <em>FOR THEMSELVES</em></h2>
+    </div>
+    <a href="#contact" class="work-cta-link reveal reveal-delay-2">Start Your Project</a>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="fw-grid">
+
+    <!-- Video 1 — Featured (full width) -->
+    <div class="fw-card fw-card--featured reveal">
+      <div class="fw-video">
+        <video controls preload="metadata" playsinline>
+          <source src="video_1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="fw-body">
+        <span class="fw-number">01 — Product Launch</span>
+        <div class="fw-card-title">SaaS Product Launch Video That Simplifies Your Messaging &amp; Drives Signups</div>
+        <div class="fw-card-desc">Turns complex product features into a clear, structured story that improves understanding and increases conversions.</div>
+      </div>
+    </div>
+
+    <!-- Videos 2 & 3 — Side by side -->
+    <div class="fw-row-bottom">
+
+      <div class="fw-card reveal reveal-delay-1">
+        <div class="fw-video">
+          <video controls preload="metadata" playsinline>
+            <source src="video_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="fw-body">
+          <span class="fw-number">02 — Explainer</span>
+          <div class="fw-card-title">High-Converting SaaS Explainer Video Designed to Capture Attention Fast</div>
+          <div class="fw-card-desc">Fast-paced, engaging visuals that keep viewers watching and move them from interest to action.</div>
+        </div>
+      </div>
+
+      <div class="fw-card reveal reveal-delay-2">
+        <div class="fw-video">
+          <video controls preload="metadata" playsinline>
+            <source src="video_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="fw-body">
+          <span class="fw-number">03 — UI Animation</span>
+          <div class="fw-card-title">UI Animation That Enhances User Experience &amp; Product Perception</div>
+          <div class="fw-card-desc">Smooth, intuitive motion design that makes your product feel more polished, modern, and easy to use.</div>
+        </div>
+      </div>
+
+    </div><!-- /fw-row-bottom -->
+  </div><!-- /fw-grid -->
+
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div>
     <span class="section-tag reveal">01 — About Nora Motion</span>
-    <h2 class="section-title reveal reveal-delay-1" style="font-size: clamp(3rem,5vw,5.5rem); margin-bottom: 2rem;">WE TURN<br>PRODUCTS INTO<br><span style="color:var(--accent)">STORIES</span></h2>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 2rem;">WE TURN<br>PRODUCTS INTO<br><span style="color:var(--accent)">STORIES</span></h2>
     <p class="reveal reveal-delay-2" style="color:var(--muted);line-height:1.9;font-size:1.05rem;">Nora Motion is a motion graphics and video production studio with 7 years of experience crafting high-impact videos for SaaS products and tech businesses. We specialize in making complex products feel simple, exciting, and worth buying — through the power of motion.</p>
     <div style="margin-top:2.5rem;" class="reveal reveal-delay-3">
       <a href="#services" class="btn"><span>Our Services</span></a>
@@ -513,32 +780,6 @@
   </div>
 </section>
 
-<!-- WORK -->
-<section id="work">
-  <div class="work-inner">
-    <div class="section-header">
-      <div>
-        <span class="section-tag reveal">03 — Selected Work</span>
-        <h2 class="section-title reveal reveal-delay-1">RECENT<br>PROJECTS</h2>
-      </div>
-      <a href="#contact" class="btn reveal reveal-delay-2" style="align-self:flex-end;"><span>Work With Us</span></a>
-    </div>
-  </div>
-  <div style="padding: 0 4rem; max-width:1400px; margin: 0 auto;">
-    <div class="projects-grid">
-      <div class="project-card yt-card reveal">
-        <iframe src="https://www.youtube.com/embed/MG-3iBV0GpY" title="Project Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <div class="project-card yt-card reveal reveal-delay-1">
-        <iframe src="https://www.youtube.com/embed/DypfF8ge9g8" title="Project Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <div class="project-card yt-card reveal reveal-delay-2">
-        <iframe src="https://www.youtube.com/embed/wppaVAsljC0" title="Project Video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CLIENTS TRUST -->
 <section id="clients">
   <div class="clients-inner">
@@ -603,13 +844,20 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-copy">© 2025 <span>Nora Motion</span> · Motion Graphics & Video Production</span>
+  <span class="footer-copy">© 2019 <span>Nora Motion</span> · Motion Graphics & Video Production</span>
   <span class="footer-copy">7 Years of Visual Storytelling</span>
 </footer>
 
 <script>
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
+
+// Hide cursor entirely on touch devices
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  cursor.style.display = 'none';
+  follower.style.display = 'none';
+}
+
 let mx = 0, my = 0, fx = 0, fy = 0;
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
@@ -637,7 +885,7 @@ class Particle {
     this.size = Math.random() * 1.2 + 0.3;
     this.speedX = (Math.random() - 0.5) * 0.25; this.speedY = (Math.random() - 0.5) * 0.25;
     this.opacity = Math.random() * 0.4 + 0.05;
-    this.color = Math.random() > 0.8 ? '#C6974A' : '#ffffff';
+    this.color = Math.random() > 0.8 ? '#C89B52' : '#ffffff';
   }
   update() {
     this.x += this.speedX; this.y += this.speedY;
@@ -655,7 +903,7 @@ function animLoop() {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
       const d = Math.sqrt(dx*dx+dy*dy);
-      if (d < 90) { ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(198,151,74,${0.06*(1-d/90)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+      if (d < 90) { ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(200,155,82,${0.06*(1-d/90)})`; ctx.lineWidth=0.5; ctx.stroke(); }
     }
   }
   particles.forEach(p => { p.update(); p.draw(); });
